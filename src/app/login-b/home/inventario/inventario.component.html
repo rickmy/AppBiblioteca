@@ -1,0 +1,315 @@
+<div class="fondo">
+    <input type="button" (click)="pagTextos()" value="Textos" class="boton">
+    <input type="button" (click)="pagEjemplares()" value="Ejemplares" class="boton">
+    <input type="button" (click)="pagEditoriales()" value="Editoriales" class="boton">
+    <input type="button" (click)="pagTipoTextos()" value="Tipo de Textos" class="boton">
+    <input type="button" (click)="pagAutores()" value="Autores" class="boton">
+    <input type="button" (click)="pagNacionalidades()" value="Nacionalidades" class="boton">
+    <input type="button" (click)="pagStands()" value="Stand" class="boton">
+</div>
+
+<div *ngIf="divTextos" class="control">   
+    <h1>Textos/Libros Disponibles</h1>
+
+    <mat-form-field>
+        <input matInput [formControl]="busquedaTxt" placeholder="Buscar Texto por titulo">
+    </mat-form-field>
+
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Código</th>
+        <th>Título</th>
+        <th>Editorial</th>
+        <th>Tipo de Texto</th>
+        <th>Autores</th>
+        <th>Descripción</th>
+        </tr>
+        <tr *ngFor="let texto of lista ">
+            <td>{{texto.codigo}}</td>
+            <td>{{texto.titulo}}</td>
+            <td>{{texto.editorial}}</td>
+            <td>{{texto.tipoTexto}}</td>
+            <td>{{texto.nombre}} {{texto.apellido}}</td>
+            <td>{{texto.descripcion}}</td>
+            <input type="submit" value="Eliminar" (click)="eliminar(texto.id,'textos')" class="boton2">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarTexto()" value="Agregar Texo" class="boton2">
+</div>
+
+<div *ngIf="divEjemplares" class="control2">   
+    <h1>Ejemplares de Textos/Libros Disponibles</h1>
+
+    <mat-form-field>
+        <input matInput [formControl]="busquedaEjemplar" placeholder="Buscar Ejemplar por codigo">
+    </mat-form-field>
+
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Código</th>
+        <th>titulo del Texto</th>
+        <th>Fecha de Publicación</th>
+        <th>Ubicádo en el Stand</th>
+        <th>Estado de Conservación</th>
+        <th>Disponibilidad</th>
+        </tr>
+        <tr *ngFor="let ejemplar of lista ">
+            <td>{{ejemplar.codigo}}</td>
+            <td>{{ejemplar.titulo}}</td>
+            <td>{{ejemplar.fechaPublicacion}}</td>
+            <td>{{ejemplar.stand}}</td>
+            <td>{{ejemplar.estadoConservacion}}</td>
+            <td>{{ejemplar.disponibilidad}}</td>
+            <input type="submit" value="Eliminar" (click)="eliminar(ejemplar.id,'ejemplares')">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarEjemplar()" value="Agregar Ejemplar">
+</div>
+
+<div *ngIf="divEditoriales">   
+    <h1>Editoriales Disponibles</h1>
+    <mat-form-field>
+        <input matInput [formControl]="busquedaEditorial" placeholder="Buscar Editorial">
+    </mat-form-field>
+    <table class="table" border=1>
+        
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Editorial</th>
+        </tr>
+        <tr *ngFor="let editoriales of lista ">
+            <td >{{editoriales.id}}</td>
+            <td >{{editoriales.editorial}}</td>
+            
+            <input type="button" value="Act" (click)="pagActualizarEditorial(editoriales)">
+            <input type="button" value="Eli" (click)="eliminar(editoriales.id,'editoriales')">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarEditorial()" value="Agregar Editorial">
+</div>
+
+<div *ngIf="divActEditoriales">   
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Editorial</th>
+        </tr>
+        <tr>
+            <td >{{editorialSelect.id}}</td>
+            <input type="txt" [(ngModel)]="editorialSelect.editorial">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="actualizarEditorial(editorialSelect)" value="Actualizar">
+</div>
+
+<div *ngIf="divTipoTextos">   
+    <h1>Tipo de Textos Disponibles</h1>
+    <mat-form-field>
+        <input matInput [formControl]="busquedaTipoTxt" placeholder="Buscar Tipo de Texto">
+    </mat-form-field>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Tipo de Textos</th>
+        </tr>
+        <tr *ngFor="let tipo of lista ">
+            <td>{{tipo.id}}</td>
+            <td>{{tipo.tipoTexto}}</td>
+            <input type="button" value="Act" (click)="pagActualizarTipoTxt(tipo)">
+            <input type="button" value="Eli" (click)="eliminar(tipo.id,'tipoTextos')">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarTipoTexto()" value="Agregar Tipo de Texto">
+</div>
+
+<div *ngIf="divActTipoTextos">   
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Tipo de Textos</th>
+        </tr>
+        <tr>
+            <td>{{tipoTxtSelect.id}}</td>
+            <input type="txt" [(ngModel)]="tipoTxtSelect.tipoTexto">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="actualizarTipoTxt(tipoTxtSelect)" value="actualizar">
+</div>
+
+<div *ngIf="divAutores">   
+    <h1>Autores Disponibles</h1>
+    
+        <select name="" id="" [(ngModel)]="filtroSeleccionado" >
+            <option [ngValue]="filtros" *ngFor ="let filtros of listaFiltros">{{filtros.filtro}}</option>
+        </select>
+        <mat-form-field>
+            <input matInput [formControl]="busqueda" placeholder="Buscar Autor">
+        </mat-form-field>
+        
+  
+    
+    <br>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Nacionalidad</th>
+        </tr>
+        <tr *ngFor="let autores of lista">
+            <td>{{autores.id}}</td>
+            <td>{{autores.nombre}}</td>
+            <td>
+                {{autores.apellido}}
+            </td>
+            <td>
+                {{autores.nacionalidad}}
+            </td>
+            <input type="button" value="Act" (click)="pagActualizar(autores)">
+            <input type="button" value="Eli" (click)="eliminar(autores.id,'autores')">
+        </tr>
+    </tbody>
+    </table>
+    
+    <input type="button" (click)="pagAgregarAutor()" value="Agregar Autor/a">
+</div>
+
+<div *ngIf="divActAutores">   
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Actual Nacionalidad</th>
+        <th *ngIf="nuevaNacionalidad">Nueva Nacionalidad</th>
+        </tr>
+        <tr >
+            <td>
+                <label for="">{{autorSelect.id}}</label>
+            </td>
+            <td>
+                <input type="txt" [(ngModel)]="autorSelect.nombre">
+            </td>
+            <td>
+                <input type="text" [(ngModel)]="autorSelect.apellido">
+            </td>
+            <td>
+                <label for="">{{autorSelect.nacionalidad}}</label>
+                <input *ngIf="btnNuevaNac" type="submit" value="Cambiar" (click)="pagCamNa()">
+                <input type="submit" *ngIf="btnOcultar" value="Ocultar" (click)="ocultarPagCam()">
+            </td>
+            <td *ngIf="nuevaNacionalidad">
+                <select name="" id="" [(ngModel)]="autorSelect.idNacionalidades" >
+                    <option [ngValue]="nacionalidades" *ngFor ="let nacionalidades of listaNacionalidades ">{{nacionalidades.nacionalidad}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+    
+    <input type="button" (click)="actualizarAutor(autorSelect)" value="Actualizar Autor/a">
+</div>
+
+<div *ngIf="divNacionalidades">   
+    <h1>Nacionalidades Disponibles</h1>
+    <mat-form-field>
+        <input matInput [formControl]="busquedaNacionalidad" placeholder="Buscar Nacionalidad">
+    </mat-form-field>
+    <table class="table" border=1>
+        
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Nacionalidad</th>
+        </tr>
+        <tr *ngFor="let nacionalidades of listaNacionalidades ">
+            <td>{{nacionalidades.id}}</td>
+            <td>{{nacionalidades.nacionalidad}}</td>
+            
+            <input type="button" value="Act" (click)="pagActualizarNacionalidad(nacionalidades)">
+            <input type="button" value="Eli" (click)="eliminar(nacionalidades.id,'nacionalidades')">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarNacionalidad()" value="Agregar Nacionalidad">
+</div>
+
+<div *ngIf="divActNacionalidades">   
+    <h1>Nacionalidades Disponibles</h1>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Nacionalidad</th>
+        </tr>
+        <tr>
+            <td>{{nacionalidadSelect.id}}</td>
+            <input type="txt" [(ngModel)]="nacionalidadSelect.nacionalidad">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="actualizarNacionalidad(nacionalidadSelect)" value="Actualizar">
+</div>
+
+<div *ngIf="divStands">   
+    <h1>Estántes Disponibles</h1>
+    <mat-form-field>
+        <input matInput [formControl]="busquedaStand" placeholder="Buscar stand">
+    </mat-form-field>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Id</th>
+        <th>Estántes</th>
+        </tr>
+        <tr *ngFor="let stand of lista ">
+            <td>{{stand.id}}</td>
+            <td>{{stand.stand}}</td>
+            
+            <input type="button" value="Act" (click)="pagActualizarStand(stand)">
+            <input type="button" value="Eli" (click)="eliminar(stand.id,'stand')">
+        </tr>
+    </tbody>
+    </table>
+    <br>
+    <input type="button" (click)="pagAgregarStand()" value="Agregar Stand">
+</div>
+
+<div *ngIf="divActStands">     
+        <table class="table" border=1>
+        <tbody>
+            <tr>
+            <th>Id</th>
+            <th>Stand</th>
+            </tr>
+            <tr>
+                <td >{{standSelect.id}}</td>
+                <input type="txt" [(ngModel)]="standSelect.stand">
+            </tr>
+        </tbody>
+        </table>
+        <br>
+        <input type="button" (click)="actualizarStand(standSelect)" value="Actualizar">
+</div>

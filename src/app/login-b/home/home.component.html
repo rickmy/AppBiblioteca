@@ -1,0 +1,38 @@
+<body>
+
+
+<div>
+    <h1>Textos Disponibles</h1>
+    <div>
+        <mat-form-field>
+            <input matInput [formControl]="busqueda" placeholder="Buscar Texto">
+        </mat-form-field>
+    </div>
+<table class="table" border=1>
+
+<tbody>
+    <tr>
+    <th>Código</th>
+    <th>Título del Texto</th>
+    <th>Fecha de Publicación</th>
+    <th>Editorial</th>
+    <th>Tipo de Texto</th>
+    <th>Autor</th>
+    <th>Descripción</th>
+    <th>Ubicádo en el Stand</th>
+    <th>Disponibilidad</th>
+    </tr>
+    <tr *ngFor="let texto of lista ">
+        <td>{{texto.codigo}}</td>
+        <td>{{texto.titulo}}</td>
+        <td>{{texto.fechaPublicacion}}</td>
+        <td>{{texto.editorial}}</td>
+        <td>{{texto.tipoTexto}}</td>
+        <td>{{texto.nombre}} {{texto.apellido}}</td>
+        <td>{{texto.descripcion}}</td>
+        <td>{{texto.stand}}</td>
+        <td>{{texto.disponibilidad}}</td>
+    </tr>
+</tbody>
+</table>
+</div>

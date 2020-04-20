@@ -1,0 +1,16 @@
+
+<input type="text" [(ngModel)]="autor.nombre" placeholder="Nombre" required>
+<input type="text" [(ngModel)]="autor.apellido" placeholder="Apellido" required>
+<select name="" id="" [(ngModel)]="seleccionado" >
+    <option [ngValue]="nacionalidades" *ngFor ="let nacionalidades of lista ">{{nacionalidades.nacionalidad}}</option>
+</select>
+
+<input type="button" (click)="ingresarAutor()" value="Ingresar Autor/a">
+
+
+<div>
+    <form action="" method="post" enctype="multipart/form-data">
+    <input type="file" name="" accept="imagen/jpeg, imagen/png" (change)="onFileSelected($event)">
+    <input type="submit" value="Subir imagen" (click)="onUpload()">
+    </form>
+</div>

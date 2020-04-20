@@ -1,0 +1,31 @@
+
+
+<h1>Devoluciones</h1>
+    <br>
+    
+    <br>
+<body>
+    <div>
+        <table class="Table" border="1">
+        <tbody>
+            <tr>
+            <th>Codigo del prestamo</th>
+            <th>Fecha devoluciones</th>
+            <th>Observaciones</th>
+            <th>Codigo de devolucion</th>
+            <th>Bibliotecario</th>
+        </tr>
+    
+        <tr *ngFor="let devoluciones of list">
+    <td>{{devoluciones.codigo}}</td>
+    <td>{{devoluciones.fechaDevolucion}}</td>
+    <td>{{devoluciones.observaciones}}</td>
+    <td>{{devoluciones.codigo}}</td>
+    <td>{{devoluciones.primerNombre}} {{devoluciones.primerApellido}} </td>
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+<input type="button" value="Agregar" routerLink='/bibliotecario/homeB/devoluciones/agregarDevolucion'>
+</body>

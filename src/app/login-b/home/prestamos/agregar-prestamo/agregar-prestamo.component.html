@@ -1,0 +1,14 @@
+<router-outlet></router-outlet>
+<p>agregar-prestamo works!</p>
+
+<input type="text" [(ngModel)]="prestamos.codigo" id="input1" placeholder="Codigo del prestamo">
+<input type="date" [(ngModel)]="prestamos.fechaPrestamo" id="input2" placeholder="Fecha del prestamo">
+<input type="text" [(ngModel)]="cedulaL" id="input3" placeholder="Cedula del lector">
+<input type="date" [(ngModel)]="prestamos.fechaMaxEntrega" id="input4" placeholder="Fecha plazo de devolución">
+<label>{{cedulaB}}</label>
+<input type="text" [(ngModel)]="prestamos.observaciones" id="input6" placeholder="Ingrese una observación">
+<select name="" id="" [(ngModel)]="ejemplar" >
+    <option [ngValue]="ejemplares" *ngFor ="let ejemplares of lista ">{{ejemplares.codigo}}</option>
+</select>
+<input type="submit" (click)="ingresar()" value="Agregar" >
+

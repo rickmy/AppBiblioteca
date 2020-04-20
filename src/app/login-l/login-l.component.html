@@ -1,0 +1,120 @@
+<body>
+    <div class="contenedor-form">
+
+        <div>
+            <div class="toggle">
+                <button id="btnCabecera" (click) = "mostrarRegistro()" *ngIf="visibilidadBtnForm">Registrarse</button>
+                <button id="btnCabecera" (click) = "mostrarLogin()" *ngIf="visibilidadBtnLogin">Atrás</button>
+            </div>
+        
+            <div class="formulario" *ngIf="divLogin">
+                
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" [(ngModel)]="formLogin.correo" id="input" placeholder="Correo Institucional" required>
+                    <input type="password" [(ngModel)] ="formLogin.clave" id="input" placeholder="Contraseña" required>
+                    <input type="submit" (click)="ingresar()"  value="Ingresar" >
+              
+                
+            </div>
+            <div class="reset-password" *ngIf='divLogin'>
+                <a (click)="olvidoClave()">¿Olvidó su contraseña?</a>
+            </div>
+        </div>
+
+        <div class="formularioRegistro" *ngIf="divRegistro">
+            <h2>Registrar Cuenta</h2>
+            
+                
+                <input type="text" [(ngModel)]="usuario.cedula" id="input"  placeholder="Cedula" required/>
+                <p *ngIf="visibilidadPCedula">Cedula Incorrecta</p>
+                <input type="text" [(ngModel)]="usuario.primerNombre" id="inputRegPrimeros" placeholder="Primer Nombre" required>
+                
+                <input type="text" [(ngModel)]="usuario.segundoNombre" id="inputRegSegundos" placeholder="Segundo Nombre" required>
+                <input type="text" [(ngModel)]="usuario.primerApellido" id="inputRegPrimeros" placeholder="Primer Apellido" required>
+                <input type="text" [(ngModel)]="usuario.segundoApellido" id="inputRegSegundos" placeholder="Segundo Apellido" required>
+                <input type="email" [(ngModel)]="usuario.correo" id="input" placeholder="Correo Institucional" required>
+                <p *ngIf="visibilidadPCorreo">la direccion de correo no existe</p>
+                <input type="password" [(ngModel)]="usuario.clave" id="input" placeholder="Contraseña" required>
+                <input type="number" [(ngModel)]="usuario.telefonoCelular" id="input" placeholder="Telefono Celular" required>
+                
+              
+                <input type="submit" value="Siguiente" (click)="pasarPag()">
+                
+         
+        </div>
+
+        <div class="formularioPreguntas" *ngIf="divPreguntas">
+            <div class="toggle">
+                <button id="btnCabecera" (click) = "atrasPag()" *ngIf="visibilidadBtnAtras">Atrás</button>
+            </div>
+            <div class="formulario">
+            <h2>Preguntas de Seguridad</h2>
+            <label > {{listaPreguntas[0].preguntaSeguridad}}</label>
+            <input [(ngModel)]="respuestaUno.respuestas" type="text" id="input"  required>
+            {{listaPreguntas[1].preguntaSeguridad}}
+            <input [(ngModel)]="respuestaDos.respuestas" type="text" id="input" required>
+            {{listaPreguntas[2].preguntaSeguridad}}
+            <input [(ngModel)]="respuestaTres.respuestas" type="text" id="input" required>
+            {{listaPreguntas[3].preguntaSeguridad}}
+            <input [(ngModel)]="respuestaCuatro.respuestas" type="text" id="input" required>
+            {{listaPreguntas[4].preguntaSeguridad}}
+            <input [(ngModel)]="respuestaCinco.respuestas" type="text" id="input" required>
+
+            <button  id="btnRegistrar"(click) ="registrar()">Registrarse</button>
+            </div>
+        </div>
+
+
+        <div *ngIf="divOlvidoClave">
+            <input type="button" id="btnCabecera" value="Atras" (click)="atrasPagina()">
+                <div class="formulario">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Correo Institucional</mat-label>
+                        <input matInput [formControl]="correo" placeholder="example@yavirac.edu.ec">
+                    </mat-form-field>
+                    <input type="button" id="btnRegistrar" value="Verificar" (click)="verificar()">
+                </div>
+            </div>
+
+
+            <div *ngIf="divPreguntasO">
+                <input type="button" id="btnCabecera" value="Atras" (click)="atrasPagina()">
+                <div class="formulario">
+                    <h2>Preguntas de Seguridad</h2>
+                    <p>Hola {{correoVerificado}} para la recuperación de tu contraseña completa estas preguntas de seguridad
+                        con las repuestas indicadas al registro de la cuenta
+                    </p>
+                    <br>
+                    <div *ngIf="primerIntento">
+                        <label >{{listaPreguntas[0].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaUnoO" type="text" id="input"  required>
+                        <label  for="">{{listaPreguntas[2].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaTresO" type="text" id="input" required>
+                        <label for="">{{listaPreguntas[4].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaCincoO" type="text" id="input" required>  
+                        <br>
+                        <input type="button" id="btnRegistrar" value="Recuperar Clave" (click)="recuperarUno()">
+                    </div>
+                    <div *ngIf="segundoIntento"> 
+                        <label >{{listaPreguntas[0].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaUnoO" type="text" id="input"  required>
+                        <label for="">{{listaPreguntas[1].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaDosO" type="text" id="input" required>
+                        <label for="">{{listaPreguntas[3].preguntaSeguridad}}</label>
+                        <input [(ngModel)]="respuestaCuatroO" type="text" id="input" required>
+                        <br>
+                        <input type="button" id="btnRegistrar" value="Recuperar Clave" (click)="recuperarDos()">
+                    </div>
+                </div>
+                
+            </div>
+        
+            <div class="formulario" *ngIf="divCambiarClave">
+            <input type="password"  id="input" [(ngModel)]="claveNueva" name="" placeholder="Ingrese Nueva Contraseña">
+            <br>
+            <input type="password"  id="input" [(ngModel)]="claveRepetir" name="" placeholder="Repita la  Contraseña">
+            <br>
+            <input type="submit" id="btnRegistrar" (click)="cambiarClave()" value="Cambiar">
+                </div>
+    </div>
+</body>

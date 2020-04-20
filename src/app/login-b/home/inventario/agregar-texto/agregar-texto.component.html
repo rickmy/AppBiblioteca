@@ -1,0 +1,55 @@
+<p>agregar-texto works!</p>
+<h1>Agregar Nuevo Texto</h1>
+<table border=1>
+    <tbody>
+        <tr>
+            <th>Código</th>
+            <th>Título</th>
+            <th>Editorial</th>
+            <th>Tipo de Texto</th>
+            <th>Autor</th>
+            <th *ngIf="autorAdicionalUno">Segundo Autor</th>
+            <th *ngIf="autorAdicionalDos">Tercer Autor</th>
+            <th>Descripción</th>
+        </tr>
+        <tr>
+            <td><input type="text" [(ngModel)]="texto.codigo"></td>
+            <td><input type="text" [(ngModel)]="texto.titulo"></td>
+            <td><select [(ngModel)]="editorialSeleccionado">
+                <option [ngValue]="editoriales" *ngFor ="let editoriales of listaEditoriales ">
+                    {{editoriales.editorial}}
+                </option>
+            </select></td>
+            <td><select [(ngModel)]="tipoTextoSeleccionado">
+                <option [ngValue]="tipoTextos" *ngFor ="let tipoTextos of listaTipoTextos ">
+                    {{tipoTextos.tipoTexto}}
+                </option>
+            </select>
+            <td><select [(ngModel)]="autorUnoSeleccionado">
+                <option [ngValue]="autores" *ngFor ="let autores of listaAutores">
+                    {{autores.nombre}}{{autores.apellido}}
+                </option>
+            </select>
+            <input type="button" *ngIf="btnAgregarUno" value="+" (click)="mostrarAutorUno()">
+            <input type="button" *ngIf="btnOcultarUno" value="-" (click)="ocultarAutorUno()">
+            </td>
+            <td *ngIf="autorAdicionalUno"><select [(ngModel)]="autorDosSeleccionado">
+                <option [ngValue]="autores" *ngFor ="let autores of listaAutores ">
+                    {{autores.nombre}}{{autores.apellido}}
+                </option>
+            </select>
+            <input type="button" *ngIf="btnAgregarDos" value="+" (click)="mostrarAutorDos()">
+            <input type="button" *ngIf="btnOcultarDos" value="-" (click)="ocultarAutorDos()">
+            </td>
+            <td *ngIf="autorAdicionalDos"><select [(ngModel)]="autorTresSeleccionado">
+                <option [ngValue]="autores" *ngFor ="let autores of listaAutores ">
+                    {{autores.nombre}} {{autores.apellido}}
+                </option>
+            </select></td>
+            <td><input type="text" [(ngModel)]="texto.descripcion"></td>
+        </tr>
+    </tbody>
+
+</table>
+<br>
+<input type="submit" value="IngresarTexto" (click)="ingresarTexto()">

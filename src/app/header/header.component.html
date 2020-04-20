@@ -1,0 +1,39 @@
+ <div *ngIf="!header.verHeaderBibliotecario"> 
+    <nav class="container" >
+        <img class="imagen">
+        <nav>
+            <ul class="menu">
+                <li><a routerLink="/bibliotecario/homeB">Home</a></li>
+                <li><a routerLink="/bibliotecario/homeB/prestamos">Prestamos</a></li> 
+                <li><a routerLink="/bibliotecario/homeB/devoluciones">Devoluciones</a></li>
+                <li><a routerLink="/bibliotecario/homeB/usuarios">Gestión Usuario</a></li>
+                <li><a routerLink="/bibliotecario/homeB/inventario">Inventario</a></li>
+                <li>Perfil
+                    <ul class="submenu">
+                        <li><a routerLink="/bibliotecario/homeB/cambiarContraseña">Cambiar contraseña</a></li>
+                        <li><a (click)="salirBibliotecario()">Cerrar sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </nav>
+ </div>
+<div *ngIf="!header.verHeaderLector">
+    <nav class="container" >
+        <img class="imagen">
+        <nav>
+            <ul class="menu">
+                <li><a routerLink="/lector/homeL">Home</a></li>
+                <li><a routerLink="/lector/homeL/historial">Historial</a></li> 
+                <li>Perfil
+                    <ul class="submenu">
+                        <li><a routerLink="/lector/homeL/cambiarContraseña">Cambiar contraseña</a></li>
+                        <li><a (click)="salirLector()">Cerrar sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </nav>
+</div>
+    
+    

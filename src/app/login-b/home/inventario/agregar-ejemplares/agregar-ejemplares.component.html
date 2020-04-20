@@ -1,0 +1,41 @@
+<p>agregar-ejemplares works!</p>
+<h1>Agregar Nuevo Ejemplar de un Texto</h1>
+<table border=1>
+    <tbody>
+        <tr>
+            <th>Código</th>
+            <th>Código/Titulo del Libro</th>
+            <th>Fecha de Publicación</th>
+            <th>Ubicación en Stand</th>
+            <th>Estado Conservación</th>
+            <th>Disponibilidad</th>
+        </tr>
+        <tr>
+            <td><input type="text" [(ngModel)]="ejemplar.codigo"></td>
+            <td><select [(ngModel)]="textoSeleccionado">
+                <option [ngValue]="textos" *ngFor ="let textos of listaTextos ">
+                    {{textos.titulo}}
+                </option>
+            </select></td>
+            <td><input type="date" [(ngModel)]="ejemplar.fechaPublicacion"></td>
+            <td><select [(ngModel)]="standSeleccionado">
+                <option [ngValue]="stands" *ngFor ="let stands of listaStands ">
+                    {{stands.stand}}
+                </option>
+            </select></td>
+            <td><select [(ngModel)]="estadoConservacionSeleccionado">
+                <option [ngValue]="estadoConservaciones" *ngFor ="let estadoConservaciones of listaEstados">
+                    {{estadoConservaciones.estadoConservacion}}
+                </option>
+            </select></td>
+            <td><select [(ngModel)]="disponibilidadSeleccionada">
+                <option [ngValue]="disponibilidades" *ngFor ="let disponibilidades of listaDisponibilidades ">
+                    {{disponibilidades.disponibilidad}}
+                </option>
+            </select></td>
+        </tr>
+    </tbody>
+
+</table>
+<br>
+<input type="submit" value="Ingresar Ejemplar" (click)="ingresarEjemplar()">

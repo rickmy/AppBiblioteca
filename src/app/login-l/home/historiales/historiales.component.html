@@ -1,0 +1,18 @@
+<h1>Prestamos Realizados </h1>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Codigo</th>
+        <th>Fecha de prestamo</th>
+        <th>Fecha maxima de entrega</th>
+        <th>Titulo del ejemplar</th>
+        <th>Observaciones</th>
+        <tr *ngFor = "let user of lista.respo">
+            <td>{{user.codigo}}</td>
+            <td>{{user.fechaPrestamo}}</td>
+            <td>{{user.fechaMaxEntrega}}</td>
+            <td>{{user.titulo}}</td>
+            <td>{{user.observaciones}}</td>
+        </tr>
+    </tbody>
+</table>

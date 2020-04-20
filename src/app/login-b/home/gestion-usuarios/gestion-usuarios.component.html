@@ -1,0 +1,49 @@
+ <body>
+        
+   
+<p>gestion-usuarios works!</p>
+
+<div (busquedaEmiter)="busquedaIngresada($event)">
+    <mat-form-field>
+        <input matInput [formControl]="busqueda" placeholder="Buscar cédula">
+    </mat-form-field>
+</div>
+<div>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>cedula</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Telefono Celular</th>
+        </tr>
+        <tr *ngFor="let user of list ">
+            <td>{{user.cedula}}</td>
+            <td >
+                
+                    {{user.primerNombre}}
+                    {{user.segundoNombre}}
+                    
+                
+            </td>
+            <td>
+                {{user.segundoApellido}}
+                {{user.primerApellido}}
+            </td>
+            <td>
+                {{user.correo}}
+            </td>
+            <td>
+                {{user.telefonoCelular}}
+            </td>
+        </tr>
+    </tbody>
+    </table>
+</div>
+<div>
+    <input type="button" (click)="pagAgregarBibliotecario()" value="Agregar Bibliotecario">
+</div>
+
+
+ </body>

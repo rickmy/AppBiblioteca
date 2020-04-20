@@ -1,0 +1,62 @@
+<body>
+    <div *ngIf="divLogin" class="contenedor-form">
+        <div class="formulario">
+            <h2>Iniciar Sesión</h2>
+                    <input type="text" [(ngModel)]="formLogin.correo" id="input" placeholder="Correo Institucional" required>
+                    <input type="password" [(ngModel)] ="formLogin.clave" id="input" placeholder="Contraseña" required>
+                    <input type="submit" (click)="ingresar()"  value="Ingresar" >
+        </div>
+        <div class="reset-password">
+            <a (click)="olvidoClave()">¿Olvidó su contraseña?</a>
+        </div>
+    </div>
+    
+    <div *ngIf="divOlvidoClave">
+    <input type="button" value="Atras" (click)="atrasPag()">
+        <div class="formulario">
+            <mat-form-field appearance="fill">
+                <mat-label>Correo Institucional</mat-label>
+                <input matInput [formControl]="correo" placeholder="example@yavirac.edu.ec">
+            </mat-form-field>
+            <input type="button" value="Verificar" (click)="verificar()">
+        </div>
+    </div>
+    <div *ngIf="divPreguntas">
+        <input type="button" value="Atras" (click)="atrasPag()">
+        <div class="formulario">
+            <h2>Preguntas de Seguridad</h2>
+            <p>Hola {{correoVerificado}} para la recuperación de tu contraseña completa estas preguntas de seguridad
+                con las repuestas indicadas al registro de la cuenta
+            </p>
+            <div *ngIf="primerIntento">
+                <label >{{listaPreguntas[0].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaUno" type="text" id="input"  required>
+                <label  for="">{{listaPreguntas[2].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaTres" type="text" id="input" required>
+                <label for="">{{listaPreguntas[4].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaCinco" type="text" id="input" required>  
+                <br>
+                <input type="button" value="Recuperar Clave" (click)="recuperarUno()">
+            </div>
+            <div *ngIf="segundoIntento"> 
+                <label >{{listaPreguntas[0].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaUno" type="text" id="input"  required>
+                <label for="">{{listaPreguntas[1].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaDos" type="text" id="input" required>
+                <label for="">{{listaPreguntas[3].preguntaSeguridad}}</label>
+                <input [(ngModel)]="respuestaCuatro" type="text" id="input" required>
+                <br>
+                <input type="button" value="Recuperar Clave" (click)="recuperarDos()">
+            </div>
+        </div>
+        
+    </div>
+
+    <div *ngIf="divCambiarClave">
+    <input type="password" [(ngModel)]="claveNueva" name="" placeholder="Ingrese Nueva Contraseña">
+    <br>
+    <input type="password" [(ngModel)]="claveRepetir" name="" placeholder="Repita la  Contraseña">
+    <br>
+    <input type="submit" (click)="cambiarClave()" value="Cambiar">
+        </div>
+</body>

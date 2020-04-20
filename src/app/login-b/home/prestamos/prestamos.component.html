@@ -1,0 +1,45 @@
+<body>
+    <h1>Prestamos</h1>
+   
+    
+    <input type="button" value="Agregar" routerLink="/bibliotecario/homeB/prestamos/agregarPrestamo">
+<br>
+<br>
+
+<h1>Prestamos Realizados </h1>
+    <table class="table" border=1>
+    <tbody>
+        <tr>
+        <th>Codigo</th>
+        <th>Fecha de prestamo</th>
+        <th>Nombre del biliotecario</th>
+        <th>Fecha maxima de entrega</th>
+        
+        <th>Titulo del ejemplar</th>
+        <th>Observaciones</th>
+        </tr>
+        <tr *ngFor="let user of lista.resultado; let indice=index">
+          <td>{{user.codigo}}</td>
+          <td>{{user.fechaPrestamo}}</td>
+          <td>{{user.primerNombre}}</td>
+          <td>{{user.fechaMaxEntrega}}</td>
+          
+          <td>{{user.titulo}}</td>
+          <td>{{user.observaciones}}</td>
+        </tr>
+       
+    </tbody>
+    </table>
+    <table border="2" id="tablaAux">
+      <tbody>
+        <tr>
+          <th>Nombre del lector</th>
+        </tr>
+        <tr *ngFor="let user1 of lista.respuesta; let indice=index">
+          <td>{{user1.primerNombre}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+
+</body>

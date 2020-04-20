@@ -1,0 +1,65 @@
+*{
+    margin: 0 0 0 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.container{
+    width: 100%;
+    background-color: #c9dddd;
+    color: darkslategrey;
+    height: 50px;
+}
+.imagen{
+    background-image: url(C:\Users\ricky\OneDrive\Escritorio\proyectointegrador2semetres\biblioteca\src\assets\imagenes\Slide7_Pic3_636408719339374930.png);
+    background-size: cover;
+    width: 90px; 
+    height: 50px;
+    float: left;
+    margin: 0 0 0 70px;
+    border: none;
+}
+.container ul{
+    list-style: none;
+}
+.menu > li{
+    display: inline-block;
+    margin: 0 0 0 70px;
+    font-family: 'Open sans';
+}
+.menu > li >a{
+    position: relative;
+    display: block;
+    padding: 15px 20px;
+    color: #353535;
+    font-family: 'Open sans';
+    text-decoration: none;
+    text-align: center;
+}
+.menu li a:hover{
+    color: aliceblue;
+    transition: all .3s;
+
+}
+
+.submenu{
+margin: 0 0 0 0;
+position: absolute;
+background-color: #c9dddd;
+visibility: hidden;
+width: 130;
+}
+.submenu li a{
+    display: block;
+    padding:15px ;
+    color:darkslategrey ;
+    font-family: 'open Sans';
+    text-decoration: none;
+}
+.menu li:hover .submenu{
+    visibility: visible;
+    opacity:2 ;
+}

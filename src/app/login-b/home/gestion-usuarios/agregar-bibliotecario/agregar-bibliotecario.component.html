@@ -1,0 +1,43 @@
+<p>agregar-bibliotecario works!</p>
+<div class="formularioRegistro" *ngIf="!divRegistro">
+    <h2>Registrar Cuenta</h2>
+    
+        
+        <input type="text" [(ngModel)]="usuario.cedula" id="input"  placeholder="Cedula" required/>
+        <p *ngIf="visibilidadPCedula">Cedula Incorrecta</p>
+        <input type="text" [(ngModel)]="usuario.primerNombre" id="inputRegPrimeros" placeholder="Primer Nombre" required>
+        
+        <input type="text" [(ngModel)]="usuario.segundoNombre" id="inputRegSegundos" placeholder="Segundo Nombre" required>
+        <input type="text" [(ngModel)]="usuario.primerApellido" id="inputRegPrimeros" placeholder="Primer Apellido" required>
+        <input type="text" [(ngModel)]="usuario.segundoApellido" id="inputRegSegundos" placeholder="Segundo Apellido" required>
+        <input type="email" [(ngModel)]="usuario.correo" id="input" placeholder="Correo Institucional" required>
+        <p *ngIf="visibilidadPCorreo">la direccion de correo no existe</p>
+        <input type="password" [(ngModel)]="usuario.clave" id="input" placeholder="Contraseña" required>
+        <input type="number" [(ngModel)]="usuario.telefonoCelular" id="input" placeholder="Telefono Celular" required>
+        
+      
+        <input type="submit" value="Siguiente" (click)="pasarPag()">
+        
+ 
+</div>
+
+<div class="formularioPreguntas" *ngIf="!divPreguntas">
+    <div class="toggle">
+        <button id="btnCabecera" (click) = "atrasPag()" *ngIf="visibilidadBtnAtras">Atrás</button>
+    </div>
+    <div class="formulario">
+    <h2>Preguntas de Seguridad</h2>
+    <label > {{listPreguntas[0].preguntaSeguridad}}</label>
+    <input [(ngModel)]="respuestaUno.respuestas" type="text" id="input"  required>
+    {{listPreguntas[1].preguntaSeguridad}}
+    <input [(ngModel)]="respuestaDos.respuestas" type="text" id="input" required>
+    {{listPreguntas[2].preguntaSeguridad}}
+    <input [(ngModel)]="respuestaTres.respuestas" type="text" id="input" required>
+    {{listPreguntas[3].preguntaSeguridad}}
+    <input [(ngModel)]="respuestaCuatro.respuestas" type="text" id="input" required>
+    {{listPreguntas[4].preguntaSeguridad}}
+    <input [(ngModel)]="respuestaCinco.respuestas" type="text" id="input" required>
+
+    <button  id="btnRegistrar"(click) ="registrar()">Registrarse</button>
+    </div>
+</div>

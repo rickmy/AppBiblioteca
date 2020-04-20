@@ -1,0 +1,13 @@
+
+
+<input type="text" [(ngModel)]=devoluciones.codigo placeholder="Ingrese el codigo de la devolución">
+<input type="date" [(ngModel)]=devoluciones.fechaDevolucion placeholder="Ingrese la fecha de devolución">
+<input type="text" [(ngModel)]=devoluciones.observaciones placeholder="Ingrese una observación">
+<select id="" [(ngModel)]="devol" >
+    <option [ngValue]="devolucion" *ngFor ="let devolucion of list ">{{devolucion.codigo}}</option>
+</select>
+<label>{{correoBibliotecario}}</label>
+<br>
+<input type="button" value="Registrar devolucion" (click)="agregarDevolucion()">
+
+

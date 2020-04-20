@@ -1,0 +1,163 @@
+body{
+    background-color: #A3D8FC;
+    font-family: Arial;
+}
+#control{
+    margin: 150px auto;
+    width: 80%;
+}
+#control1{
+    margin: 150px auto;
+    width: 80%;
+}
+#control2{
+    margin: 150px auto;
+    width: 80%;
+}
+#control3{
+    margin: 150px auto;
+    width: 80%;
+}
+#control4{
+    margin: 150px auto;
+    width: 80%;
+}
+#control5{
+    margin: 150px auto;
+    width: 80%;
+}
+#control6{
+    margin: 150px auto;
+    width: 80%;
+}
+#control7{
+    margin: 150px auto;
+    width: 80%;
+}
+#control8{
+    margin: 150px auto;
+    width: 80%;
+}
+#control9{
+    margin: 150px auto;
+    width: 80%;
+}
+#control10{
+    margin: 150px auto;
+    width: 80%;
+}
+#control11{
+    margin: 150px auto;
+    width: 80%;
+}
+
+table{
+    background-color: white;
+    text-align: center;
+    width: 100%;
+}
+td ,tr{
+    padding: 20px;
+}
+.fondo{
+    background-color:#4D688C;
+    width: 20%;
+    height: 100%;
+    border: none;
+}
+thead{
+    background-color:#A0B3D9;
+    border-bottom: solid 5px;
+    color: white;
+}
+tr:nth-child(even){
+    background-color: #ddd;
+}
+tr:hover td{
+    background-color:#A0B3D9;
+    color: white;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.boton{
+   background:#4D688C;
+   color: #fff;
+   display: inline-block;
+   font-size: 1.25em;
+   margin: 10px;
+   padding: 10px 0px;
+   text-align: left;
+   width: 50%;
+   text-decoration: none;
+   border: none;
+ /*border-radius: 50px;*/ 
+ }
+.boton:hover{
+    box-shadow: 0px 0px 0px ;
+    padding: 7px;
+}
+h1{
+    text-align:center;
+    color: #246355;
+}
+.barra{
+    width: 55%;
+    border: 2px solid #aaa;
+    border-radius:4px;
+    margin: 8px 0;
+    outline: none;
+    padding: 4px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.barra:focus{
+border-color:dodgerblue ;
+box-shadow: 0 0 8px 0 dodgerblue;
+}
+.boton1{
+    background:#4D688C;
+    color: #fff;
+    display: inline-block;
+    font-size: 0.75em;
+    margin: 10px;
+    padding: 10px 0px;
+    text-align: center;
+    width: 100px;
+    text-decoration: none;
+  /*border-radius: 50px;*/ 
+  }
+ .boton:hover{
+     box-shadow: 0px 0px 0px ;
+     padding: 7px;
+ }
+ .barra1{
+    width: 55%;
+    border: 2px solid #aaa;
+    border-radius:4px;
+    margin: 4px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.barra1:focus{
+border-color:dodgerblue ;
+box-shadow: 0 0 8px 0 dodgerblue;
+}
+
+.barra2{
+    width: 20%;
+    border: 2px solid #aaa;
+    border-radius:4px;
+    margin: 4px 0;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+}
+.barra2:focus{
+border-color:dodgerblue ;
+box-shadow: 0 0 8px 0 dodgerblue;
+}
